@@ -106,7 +106,8 @@ Files worth inspecting for concrete patterns
 
 Safety & commit etiquette for agents
 
-- Do not push commits that modify dependencies without updating and committing the lockfile.
+- Only make commits, allow user to decide when to push.
+- Do not make commits that modify dependencies without updating and committing the lockfile.
 - Run `bun run lint` and `bunx prettier --check .` in CI-like order locally before creating PRs.
 - Keep changes small and focused; include a brief commit message and describe the intent in the PR body.
 
