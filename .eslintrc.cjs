@@ -3,13 +3,12 @@ module.exports = {
   env: {
     browser: true,
     node: true,
-    es2021: true
+    es2021: true,
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: ['./tsconfig.json', './packages/*/tsconfig.json']
   },
   plugins: ['@typescript-eslint', 'react', 'react-hooks', 'jsx-a11y', 'import'],
   extends: [
@@ -21,36 +20,49 @@ module.exports = {
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
-    'prettier'
+    'prettier',
   ],
   settings: {
     react: {
-      version: 'detect'
-    }
+      version: 'detect',
+    },
   },
   rules: {
     'no-console': ['warn', { allow: ['warn', 'error'] }],
     'import/order': [
       'warn',
       {
-        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
-        'newlines-between': 'always'
-      }
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          'parent',
+          'sibling',
+          'index',
+        ],
+        'newlines-between': 'always',
+      },
     ],
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off'
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
   },
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
-      rules: {}
+      rules: {},
     },
     {
       files: ['packages/server/**/*.ts'],
       parserOptions: {
-        project: ['./packages/server/tsconfig.json']
-      }
-    }
-  ]
-}
+        project: ['./packages/server/tsconfig.json'],
+      },
+    },
+    {
+      files: ['packages/client/**/*.{ts,tsx,js,jsx}'],
+      parserOptions: {
+        project: ['./packages/client/tsconfig.json'],
+      },
+    },
+  ],
+};
