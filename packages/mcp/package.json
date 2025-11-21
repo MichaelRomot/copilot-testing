@@ -1,0 +1,10 @@
+{
+  "name": "@copilot-testing/mcp",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Placeholder package for MCP-related code",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No MCP package yet\" && exit 0"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "copilot-testing",
+  "private": true,
+  "version": "0.0.0",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "install": "npm install",
+    "dev:client": "npm --workspace @copilot-testing/client run dev",
+    "dev:server": "npm --workspace @copilot-testing/server run start:dev",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.0"
+  }
+}
