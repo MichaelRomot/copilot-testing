@@ -2,9 +2,9 @@ name: Lint and Format (Bun)
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   lint:
@@ -28,4 +28,3 @@ jobs:
 
       - name: Run Prettier check
         run: bunx prettier --check .
-
