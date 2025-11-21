@@ -1,4 +1,4 @@
-name: Lint and Format
+name: Lint and Format (Bun)
 
 on:
   push:
@@ -8,22 +8,24 @@ on:
 
 jobs:
   lint:
-    name: ESLint + Prettier
+    name: ESLint + Prettier (Bun)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+      - name: Install Bun
+        run: |
+          curl -fsSL https://bun.sh/install | bash
+          echo "PATH=${HOME}/.bun/bin:$PATH" >> $GITHUB_ENV
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Install dependencies (Bun)
+        run: |
+          bun install --frozen-lockfile
 
       - name: Run ESLint
-        run: npm run lint
+        run: bun run lint
 
       - name: Run Prettier check
-        run: npx prettier --check .
+        run: bunx prettier --check .
+
