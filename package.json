@@ -10,26 +10,29 @@
     "dev:client": "cd packages/client && bun dev",
     "dev:server": "cd packages/server && bun run start:dev",
     "dev": "concurrently \"cd packages/server && bun run start:dev\" \"cd packages/client && bun dev\"",
+    "compose:up": "docker compose up --build -d",
+    "compose:down": "docker compose down",
     "lint": "eslint --ext .ts,.tsx,.js,.jsx .",
     "lint:fix": "eslint --ext .ts,.tsx,.js,.jsx --fix .",
     "prepare": "husky install",
     "format": "prettier --write ."
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
     "concurrently": "^8.0.0",
     "eslint": "^8.50.0",
-    "@typescript-eslint/parser": "^6.0.0",
-    "@typescript-eslint/eslint-plugin": "^6.0.0",
     "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-react": "^7.32.0",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
-    "eslint-plugin-import": "^2.29.0",
     "husky": "^8.0.0",
-    "lint-staged": "^14.0.0"
+    "lint-staged": "^14.0.0",
+    "prettier": "^3.6.2"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
+    "*.{js,jsx,ts,tsx, yml}": [
       "eslint --fix",
       "prettier --write"
     ],
