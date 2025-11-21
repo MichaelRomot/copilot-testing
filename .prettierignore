@@ -1,0 +1,12 @@
+node_modules
+dist
+build
+.DS_Store
+coverage
+.vscode
+.bun
+bun.lockb
+.env
+.env.*
+packages/**/dist
+packages/**/build
